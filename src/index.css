@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@400;500&display=swap');
+
+@layer base {
+  :root {
+    --background: 228 20% 97%;
+    --foreground: 228 60% 8%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 228 60% 8%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 228 60% 8%;
+
+    --primary: 231 90% 58%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 228 15% 96%;
+    --secondary-foreground: 228 60% 8%;
+
+    --muted: 228 15% 96%;
+    --muted-foreground: 228 15% 45%;
+
+    --accent: 228 15% 96%;
+    --accent-foreground: 228 60% 8%;
+
+    --destructive: 5 75% 54%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 64% 38%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 30 80% 20%;
+
+    --border: 228 20% 92%;
+    --border-md: 228 20% 86%;
+    --input: 228 20% 92%;
+    --ring: 231 90% 58%;
+
+    --radius: 1rem;
+
+    --sidebar-background: 228 60% 8%;
+    --sidebar-foreground: 228 15% 96%;
+    --sidebar-primary: 231 90% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 228 40% 15%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 228 40% 20%;
+    --sidebar-ring: 231 90% 58%;
+
+    --ink: 228 60% 8%;
+    --ink-60: 228 15% 45%;
+    --ink-30: 228 15% 75%;
+    --surface: 228 20% 97%;
+
+    --blue: 231 90% 58%;
+    --blue-dark: 231 80% 45%;
+    --blue-pale: 228 100% 95%;
+    --blue-glow: 231 90% 58% / 0.12;
+
+    --red: 5 75% 54%;
+    --red-pale: 5 100% 97%;
+    --amber: 38 92% 50%;
+    --amber-pale: 48 100% 96%;
+    --green: 142 64% 38%;
+    --green-pale: 142 76% 97%;
+    --gold: 32 95% 44%;
+
+    --ivi-orange: 16 90% 60%;
+    --ivi-orange-dark: 16 80% 50%;
+    --ivi-orange-pale: 16 100% 96%;
+
+    --shadow-sm: 0 1px 3px rgba(10,15,30,0.08), 0 1px 2px rgba(10,15,30,0.04);
+    --shadow: 0 4px 16px rgba(10,15,30,0.10), 0 1px 4px rgba(10,15,30,0.06);
+    --shadow-lg: 0 12px 40px rgba(10,15,30,0.14), 0 4px 12px rgba(10,15,30,0.08);
+    --shadow-xl: 0 24px 64px rgba(10,15,30,0.18), 0 8px 24px rgba(10,15,30,0.10);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'DM Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+  }
+
+  ::selection {
+    background: hsla(231, 90%, 58%, 0.2);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Syne', ui-sans-serif, system-ui, sans-serif;
+  }
+
+  .font-mono {
+    font-family: 'DM Mono', ui-monospace, SFMono-Regular, monospace;
+  }
+
+  .scroll-anchor {
+    scroll-margin-top: 82px;
+  }
+
+  .section-card {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .badge {
+    padding: 5px 12px;
+    border-radius: 100px;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    font-weight: 500;
+    border: 1px solid;
+  }
+
+  .badge-blue {
+    background: hsl(var(--blue-pale));
+    color: hsl(var(--blue));
+    border-color: hsl(var(--blue) / 0.2);
+  }
+
+  .badge-red {
+    background: hsl(var(--red-pale));
+    color: hsl(var(--red));
+    border-color: hsl(var(--red) / 0.2);
+  }
+
+  .badge-green {
+    background: hsl(var(--green-pale));
+    color: hsl(var(--green));
+    border-color: hsl(var(--green) / 0.2);
+  }
+
+  .badge-amber {
+    background: hsl(var(--amber-pale));
+    color: hsl(var(--gold));
+    border-color: hsl(var(--gold) / 0.2);
+  }
+
+  .badge-orange {
+    background: hsl(var(--ivi-orange-pale));
+    color: hsl(var(--ivi-orange));
+    border-color: hsl(var(--ivi-orange) / 0.2);
+  }
+
+  .pill-item {
+    padding: 16px;
+    border-radius: var(--radius);
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--surface));
+  }
+
+  .alert-warning {
+    border-left: 4px solid hsl(var(--amber));
+    background: hsl(var(--amber-pale));
+    padding: 16px 20px;
+    border-radius: 12px;
+    color: hsl(var(--gold));
+  }
+
+  .note-info {
+    padding: 16px 20px;
+    border-radius: var(--radius);
+    border: 1px solid hsl(var(--blue) / 0.2);
+    background: hsl(var(--blue-pale));
+    color: hsl(var(--blue));
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.75); }
+  }
+}
